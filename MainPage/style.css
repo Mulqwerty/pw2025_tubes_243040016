@@ -1,0 +1,50 @@
+body {
+    background: #fafafa;
+}
+
+/* Sidebar Custom */
+.sidebar-custom {
+    min-width: 70px;
+    max-width: 120px;
+    border-right: 1px solid #eee;
+}
+
+.sidebar-custom .nav-link.active, .sidebar-custom .nav-link:hover {
+    background: #f1f1f1;
+    color: #e60023 !important;
+    border-radius: 12px;
+}
+
+.profile-circle {
+    width: 38px;
+    height: 38px;
+    background: black;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar {
+    min-height: 60px;
+}
+
+.navbrand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1 rem;
+    color: black;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 0.3em 0.5em;
+}
+
+.card{
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    align-items: flex-end;
+}

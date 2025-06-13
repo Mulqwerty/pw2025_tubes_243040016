@@ -1,0 +1,25 @@
+body{
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.navbar-brand{
+    font-size: 27px;
+    font-family: 'playfair'
+}
+
+span{
+    color: silver;
+}
+
+.card{
+    background-color: aliceblue;
+    width: 400px;
+    display: flex;
+    border-radius: 7%
+}
+
+.card-title{
+    font-size: 26px;
+    font-weight: 600;
+    font-family: 'merriweather';
+}
