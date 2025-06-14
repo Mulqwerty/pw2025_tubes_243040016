@@ -53,7 +53,7 @@ if(isset($_POST['Daftar'])) {
         <div class="card-body">
 
           <h4 class="card-title text-center ">Daftar</h4>
-          <form action="http://pw2025_tube_24040016.test/config/pendaftaran.php" menthod="POST">
+          <form method="POST" action="http://pw2025_tube_24040016.test/config/pendaftaran.php">
             <div class="mb-3">
               <label for="namalengkap" class="form-label">Nama Lengkap</label>
               <input type="text" class="form-control" id="NamaLengkap" name="NamaLengkap" required >
