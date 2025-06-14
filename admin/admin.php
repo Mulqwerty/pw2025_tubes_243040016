@@ -35,9 +35,9 @@ $loggedInUserID = $_SESSION['user_id'] ?? 1; // Ganti dengan ID pengguna yang se
 
 // --- Proses Upload Foto (INSERT ke Database) ---
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'upload') {
-    $title = trim($_POST['title']);
-    $description = trim($_POST['description']);
-    $albumID = $_POST['album_id'] ?? null; // Anda perlu menambahkan input untuk AlbumID jika dibutuhkan
+    $title = trim($_POST['NamaAlbum']);
+    $description = trim($_POST['Deskrips']);
+    $albumID = $_POST['Album_id'] ?? null; // Anda perlu menambahkan input untuk AlbumID jika dibutuhkan
                                            // Jika tidak ada, bisa diisi NULL atau ID album default
 
     if (!empty($title) && isset($_FILES['photo']) && $_FILES['photo']['error'] === 0) {
@@ -530,8 +530,6 @@ try {
                                     <th>ID</th>
                                     <th>Nama Pengguna</th>
                                     <th>Email</th>
-                                    <th>Role</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -546,23 +544,13 @@ try {
                                             <td><?php echo htmlspecialchars($user['Username']); ?></td>
                                             <td><?php echo htmlspecialchars($user['Email']); ?></td>
                                             <td>
-                                                <?php
-                                                $badgeClass = 'bg-secondary';
-                                                if ($user['Role'] === 'admin') {
-                                                    $badgeClass = 'bg-danger';
-                                                } elseif ($user['Role'] === 'user') {
-                                                    $badgeClass = 'bg-primary';
-                                                }
-                                                echo '<span class="badge ' . $badgeClass . '">' . htmlspecialchars(ucfirst($user['Role'])) . '</span>';
-                                                ?>
                                             </td>
                                             <td>
                                                 <button class="btn btn-sm btn-primary" title="Edit Pengguna"
                                                         data-bs-toggle="modal" data-bs-target="#editUserModal"
                                                         data-userid="<?php echo $user['UserId']; ?>"
                                                         data-username="<?php echo htmlspecialchars($user['Username']); ?>"
-                                                        data-email="<?php echo htmlspecialchars($user['Email']); ?>"
-                                                        data-role="<?php echo htmlspecialchars($user['Role']); ?>">
+                                                        data-email="<?php echo htmlspecialchars($user['Email']); ?>">
                                                     <i class="bi bi-pencil me-1"></i>Edit
                                                 </button>
                                                 <a href="aksi_hapus_user.php?id=<?php echo $user['UserId']; ?>"
@@ -601,13 +589,6 @@ try {
                                     <label for="new_email" class="form-label">Email</label>
                                     <input type="email" class="form-control" id="new_email" name="email" required>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="new_role" class="form-label">Role</label>
-                                    <select class="form-control" id="new_role" name="role" required>
-                                        <option value="user">User</option>
-                                        <option value="admin">Admin</option>
-                                    </select>
-                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -621,7 +602,7 @@ try {
             <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="aksi_edit_user.php" method="POST">
+                        <form action="/config/ubah_data.php" method="POST">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="editUserModalLabel">Edit Pengguna</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -635,13 +616,6 @@ try {
                                 <div class="mb-3">
                                     <label for="edit_email" class="form-label">Email</label>
                                     <input type="email" class="form-control" id="edit_email" name="email" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="edit_role" class="form-label">Role</label>
-                                    <select class="form-control" id="edit_role" name="role" required>
-                                        <option value="user">User</option>
-                                        <option value="admin">Admin</option>
-                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="edit_password" class="form-label">Password Baru (kosongkan jika tidak diubah)</label>
