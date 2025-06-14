@@ -1,7 +1,4 @@
-<?php
-include 'config/koneksi.php';
-?>
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -92,68 +89,49 @@ include 'config/koneksi.php';
         </div>
       </nav>
       <!-- Konten utama di sini -->
-      <?php
-      // Fetch images from the database
-      $query = "SELECT image_path FROM images"; // Adjust the table name and column as necessary
-      $result = mysqli_query($conn, $query);
-      ?>
-
-      <section class="photo-slider">
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <?php
-            $isActive = true; // To set the first item as active
-            while ($row = mysqli_fetch_assoc($result)) {
-              $activeClass = $isActive ? 'active' : '';
-              echo '<div class="carousel-item ' . $activeClass . '">';
-              echo '<img src="' . $row['image_path'] . '" class="d-block w-100" alt="Slide">';
-              echo '</div>';
-              $isActive = false; // Set to false after the first iteration
-            }
-            ?>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </section>
+       
 
       <section class="container"> 
       <div class="p-4">
-        <div class="container mt-3">
-          <div class="row g-2"> <!-- Added g-2 for smaller gutter -->
-            <div class="col-md-3">
-              <div class="card">
-          <img src="" class="card-img-top" title="" style="height: 12rem;">
-          <div class="card-footer text-center"></div>
-          <a href="">10 suka</a>
-          <a href="">3 komentar</a>
-              </div>
+      <div class="container mt-3">
+    <div class="row g-2"> <div class="col-md-3">
+            <div class="card">
+                <img src="http://pw2025_tube_24040016.test/CSS/img/img1.jpg" class="card-img-top" alt="Gambar Album">
+                <div class="card-footer text-center">
+                    <a href="#" class="me-2 text-decoration-none text-dark"><i class="bi bi-heart"></i> 10 suka</a>
+                    <a href="#" class="text-decoration-none text-dark"><i class="bi bi-chat-dots"></i> 3 komentar</a>
+                </div>
             </div>
-            <div class="col-md-3">
-              <div class="card">
-          <img src="" class="card-img-top" title="" style="height: 12rem;">
-          <div class="card-footer text-center"></div>
-          <a href="">10 suka</a>
-          <a href="">3 komentar</a>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-          <img src="" class="card-img-top" title="" style="height: 12rem;">
-          <div class="card-footer text-center"></div>
-          <a href="">10 suka</a>
-          <a href="">3 komentar</a>
-              </div>
-            </div>
-          </div>
         </div>
-          </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img src="http://pw2025_tube_24040016.test/CSS/img/img2.jpg" class="card-img-top" alt="Gambar Album">
+                <div class="card-footer text-center">
+                    <a href="#" class="me-2 text-decoration-none text-dark"><i class="bi bi-heart"></i> 5 suka</a>
+                    <a href="#" class="text-decoration-none text-dark"><i class="bi bi-chat-dots"></i> 1 komentar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img src="http://pw2025_tube_24040016.test/CSS/img/img3.jpg" class="card-img-top" alt="Gambar Album">
+                <div class="card-footer text-center">
+                    <a href="#" class="me-2 text-decoration-none text-dark"><i class="bi bi-heart"></i> 12 suka</a>
+                    <a href="#" class="text-decoration-none text-dark"><i class="bi bi-chat-dots"></i> 4 komentar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img src="http://pw2025_tube_24040016.test/CSS/img/img4.jpg" class="card-img-top" alt="Gambar Album">
+                <div class="card-footer text-center">
+                    <a href="#" class="me-2 text-decoration-none text-dark"><i class="bi bi-heart"></i> 8 suka</a>
+                    <a href="#" class="text-decoration-none text-dark"><i class="bi bi-chat-dots"></i> 2 komentar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
         </div>
         </section>
