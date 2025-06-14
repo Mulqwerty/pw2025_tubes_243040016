@@ -5,12 +5,4 @@ $passdb = '';
 $namedb = 'galeri_foto';
 
 $koneksi = mysqli_connect($hostname, $userdb, $passdb, $namedb);
-
-if (!$koneksi) {
-    die ("Gagal Terkoneksi");
-}
-else {
-    echo "Terkoneksi";
-}
-
 ?>

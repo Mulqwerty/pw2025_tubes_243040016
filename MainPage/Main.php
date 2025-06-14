@@ -1,3 +1,6 @@
+<?php
+include 'config/koneksi.php';
+?>
   <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -89,18 +92,25 @@
         </div>
       </nav>
       <!-- Konten utama di sini -->
+      <?php
+      // Fetch images from the database
+      $query = "SELECT image_path FROM images"; // Adjust the table name and column as necessary
+      $result = mysqli_query($conn, $query);
+      ?>
+
       <section class="photo-slider">
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="image1.jpg" class="d-block w-100" alt="Slide 1">
-            </div>
-            <div class="carousel-item">
-              <img src="image2.jpg" class="d-block w-100" alt="Slide 2">
-            </div>
-            <div class="carousel-item">
-              <img src="image3.jpg" class="d-block w-100" alt="Slide 3">
-            </div>
+            <?php
+            $isActive = true; // To set the first item as active
+            while ($row = mysqli_fetch_assoc($result)) {
+              $activeClass = $isActive ? 'active' : '';
+              echo '<div class="carousel-item ' . $activeClass . '">';
+              echo '<img src="' . $row['image_path'] . '" class="d-block w-100" alt="Slide">';
+              echo '</div>';
+              $isActive = false; // Set to false after the first iteration
+            }
+            ?>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
